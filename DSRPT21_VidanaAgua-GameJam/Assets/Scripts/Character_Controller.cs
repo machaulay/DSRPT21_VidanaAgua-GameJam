@@ -42,6 +42,10 @@ public class Character_Controller : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(GameController.Instance.State != GameController.GameStates.PLAYING)
+            return;
+        
+
         Vector3 direction = new Vector3(_MoveX, 0, 0);
         _charMove = direction;
         
