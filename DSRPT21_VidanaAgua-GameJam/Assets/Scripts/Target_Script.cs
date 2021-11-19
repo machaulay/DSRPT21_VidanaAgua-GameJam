@@ -8,13 +8,14 @@ public class Target_Script : MonoBehaviour
     GameControle gameControle;
     GameObject orcPlayer;
     public GameObject TargetMesh;
+    public GameObject redAlert;
+
 
     [SerializeField] private float safeDistance;
     [SerializeField] private float speed;
 
     int current_way;
     private bool isRunning;
-
 
     private Animator _anim;
 
@@ -32,6 +33,9 @@ public class Target_Script : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
+
+        redAlert.SetActive(false);
+
     }
 
     void Update()
@@ -40,16 +44,21 @@ public class Target_Script : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.transform.position) < safeDistance)
         {
-            isRunning = true;
-
-
             agent.destination = target.transform.position;
 
+            isRunning = true;
+            redAlert.SetActive(true);
 
-            //transform.LookAt(target.transform.position);
+            //troca prancheta na mão
+
+
         }
         else
         {
+            redAlert.SetActive(false);
+
+            //retorna a prancheta na mão
+
             if (agent.velocity.magnitude < 1.0f)
             {
                 isRunning = false;
@@ -69,10 +78,21 @@ public class Target_Script : MonoBehaviour
         _anim.SetBool("isRunning", isRunning);
     }
 
+    //public IEnumerator RedAlert()
+    //{
+    //    tocando = true;
+    //    yield return new WaitForSeconds(3.0f);
+    //    tocando = false;
+    //    redAlert.SetActive(false);
+
+    //}
+
+
     private void OnTriggerEnter(Collider other)
     {
-        
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
 
+        }
     }
 }

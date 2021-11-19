@@ -48,7 +48,11 @@ public class Character_Controller : MonoBehaviour
         }
 
         if (GameController.Instance.State != GameController.GameStates.PLAYING)
+        {
+            playerAnim.SetBool("pMove", false);
             return;
+
+        }
 
         GetInput();
         _MoveX = Input.GetAxis("Horizontal");

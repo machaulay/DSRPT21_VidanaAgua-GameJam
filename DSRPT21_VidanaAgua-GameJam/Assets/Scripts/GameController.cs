@@ -37,7 +37,9 @@ public class GameController : MonoBehaviour
     public enum GameStates
     {
         WAIT_TO_START,
-        GAMEOVER,
+        GAMEOVER_01,
+        GAMEOVER_02,
+        GAMEOVER_03,
         PLAYING,
         PAUSED
     }
@@ -80,7 +82,18 @@ public class GameController : MonoBehaviour
         //    dialogueBox2.SetActive(true);
 
         //}
-        
+        if (GameController.Instance.State == GameController.GameStates.GAMEOVER_01)
+        {
+            Debug.Log("TESTE DE TRAP");
+        }
+        if (GameController.Instance.State == GameController.GameStates.GAMEOVER_02)
+        {
+
+        }
+        if (GameController.Instance.State == GameController.GameStates.GAMEOVER_03)
+        {
+
+        }
 
     }
     public static IEnumerator CarregaCena(string cena)

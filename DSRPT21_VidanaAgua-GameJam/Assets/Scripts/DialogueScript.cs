@@ -5,7 +5,7 @@ using TMPro;
 
 public class DialogueScript : MonoBehaviour
 {
-    public TextMeshPro textComponent;
+    public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
 
@@ -36,8 +36,8 @@ public class DialogueScript : MonoBehaviour
 
             }
         }
-            
-        
+
+       
     }
 
     void StartDialogue()
@@ -65,8 +65,10 @@ public class DialogueScript : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
-            GameController.Instance.State = GameController.GameStates.PLAYING;
+            NPC_Script.esconder = true;
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
+            //GameController.Instance.State = GameController.GameStates.PLAYING;
 
         }
     }
