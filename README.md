@@ -2,6 +2,8 @@
 Jogo para a DSRPT 21, Game Jam da Fiap 2021
 
   Vida na água – GameJam
+  - Unity3D
+  - C#
   
 Nesse jogo de plataforma 2.5D tive como desafio aplicar o NavMesh, resolvi usa-lo nos inimigos que ficam pela fase e correm atras do jogador para tentar impedi-lo de prosseguir,
 com ele mapeei onde os agentes poderiam andar, e, fiz um pequeno código para fazer eles perseguirem o alvo quando o mesmo estiver próximo.
